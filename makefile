@@ -63,7 +63,7 @@ test-report: venv  ## 🎯 Unit tests for Flask app (with report output)
 test-api: .EXPORT_ALL_VARIABLES  ## 🚦 Run integration API tests, server must be running 
 	cd tests \
 	&& npm install newman \
-	&& ./node_modules/.bin/newman run ./postman_collection.json --env-var apphost=$(TEST_HOST)
+	&& ./node_modules/.bin/newman run ./postman_collection.json --env-var apphost=$(TEST_HOST) -r json
 
 clean:  ## 🧹 Clean up project
 	rm -rf $(SRC_DIR)/.venv
